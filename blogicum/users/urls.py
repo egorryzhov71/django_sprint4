@@ -9,19 +9,19 @@ app_name = 'users'
 
 urlpatterns = [
     path('login/', 
-         LoginView.as_view(template_name='users/login.html'), 
+         LoginView.as_view(template_name='registration/login.html'),  
          name='login'),
     
     path('logout/', 
-         LogoutView.as_view(template_name='users/logged_out.html'), 
+         LogoutView.as_view(template_name='registration/logged_out.html'), 
          name='logout'),
     
     path('password_change/', 
-         PasswordChangeView.as_view(template_name='users/password_change_form.html'), 
+         PasswordChangeView.as_view(template_name='registration/password_change_form.html'), 
          name='password_change'),
     
     path('password_change/done/', 
-         PasswordChangeDoneView.as_view(template_name='users/password_change_done.html'), 
+         PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'),  
          name='password_change_done'),
     
     path('registration/', 

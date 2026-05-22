@@ -104,22 +104,6 @@ class PostDetailView(DetailView):
     template_name = 'blog/detail.html'
     context_object_name = 'post'
 
-    def get_queryset(self):
-        queryset = Post.objects.select_related(
-            'category', 'location', 'author'
-        ).annotate(
-            comment_count=Count('comments')
-        )
-        
-        if self.request.user != self.get_object().author:
-            queryset = queryset.filter(
-                pub_date__lte=timezone.now(),
-                is_published=True,
-                category__is_published=True
-            )
-        
-        return queryset
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = CommentForm()

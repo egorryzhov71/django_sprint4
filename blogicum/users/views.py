@@ -5,5 +5,5 @@ from django.contrib.auth.forms import UserCreationForm
 
 class RegistrationView(CreateView):
     form_class = UserCreationForm
-    template_name = 'users/registration.html'
+    template_name = 'registration/registration.html'
     success_url = reverse_lazy('blog:index')
